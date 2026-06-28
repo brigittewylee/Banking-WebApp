@@ -5,12 +5,12 @@
     <form [formGroup]="accountForm">
         <label class="new-acc-labels">Account Name:</label>
         <mat-form-field appearance="outline" class="new-acc-fields">
-            <input formControlName="name" matInput placeholder="eg.test123" type="string">
+            <input formControlName="name" matInput placeholder="eg.test123" type="string" (input)="accountForm.get('name')?.markAsTouched()">
             @if (accountForm.get('name')?.touched && accountForm.get('name')?.errors?.['required']) {
                 <mat-error>Account Name cannot be empty.</mat-error>
                 }
             @else if (accountForm.get('name')?.errors?.['minlength']) {
-                <mat-error>Account Name must be at least 5 characters.</mat-error>
+                <mat-error>Account Name must be at least 3 characters.</mat-error>
                 }
             @else if (accountForm.get('name')?.errors?.['maxlength']) {
                 <mat-error>Account Name cannot be more than 30 characters.</mat-error>

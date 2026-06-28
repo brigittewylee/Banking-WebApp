@@ -19,7 +19,7 @@ export class AccountCreation implements OnInit {
     private bankService: BankService,
     private router: Router) {
     this.accountForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(5),
+      name: ['', [Validators.required, Validators.minLength(3),
       Validators.maxLength(30), Validators.pattern('^[a-zA-Z0-9]*$')]],
       balance: [null, [Validators.required, Validators.min(0.01)]],
       accountType: ['', [Validators.required]]
@@ -36,6 +36,7 @@ export class AccountCreation implements OnInit {
   }
 
   limitDecimals(event: any) {
+    this.accountForm.get('balance')?.markAsTouched();
     const value = event.target.value;
     if (value.includes('.')) {
       const parts = value.split('.');

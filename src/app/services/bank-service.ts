@@ -133,7 +133,7 @@ export class BankService {
     withdrawalAccount.balance -= amount;
     depositAccount.balance += amount;
 
-    this.transactions.push({
+    this.transactions.unshift({
       transactionId: Date.now(),
       transactionDescription: null,
       withdrawAccountId,

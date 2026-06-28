@@ -23,8 +23,6 @@ export class TransferFunds implements OnInit {
   }
 
   onSubmit() {
-    console.log('form valid:', this.transferForm.valid)
-    console.log('form value:', this.transferForm.value)
     if (this.transferForm.valid) {
       const { withdrawId, depositId, amount } = this.transferForm.value
       this.bankService.transferFunds(withdrawId, depositId, amount)
@@ -57,6 +55,7 @@ export class TransferFunds implements OnInit {
   }
 
   limitDecimals(event: any) {
+    this.transferForm.get('amount')?.markAsTouched();
     const value = event.target.value;
     if (value.includes('.')) {
       const parts = value.split('.');
