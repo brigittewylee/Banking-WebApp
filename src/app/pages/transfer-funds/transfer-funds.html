@@ -1,0 +1,49 @@
+<div>
+    <form [formGroup]="transferForm"> 
+        <h1 class="header-spacing">Transfer Funds</h1>
+        <hr class="dividing-line"> 
+        <div class="content-container">
+            <p class="transfer-description">Transfer money securely between your accounts</p>            
+            <div class="transfer-container">
+                <div class="dropdown-formatting">
+                    <label class="transfer-labels">Withdraw from:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select formControlName="withdrawId" placeholder="Select Account">
+                            @for (account of accounts; track account.accountId) {
+                                <mat-option [value]="account.accountId">{{account.accountType}} - {{account.accountId}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="dropdown-formatting">
+                    <label class="transfer-labels">Deposit to:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-select formControlName="depositId" placeholder="Select Account">
+                            @for (account of accounts; track account.accountId) {
+                                @if (account.accountId != transferForm.value.withdrawId) {
+                                    <mat-option [value]="account.accountId">{{account.accountType}} - {{account.accountId}}</mat-option>
+                                }
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="dropdown-formatting">
+                    <label class="transfer-labels">Amount:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-icon matPrefix>attach_money</mat-icon>
+                        <input formControlName="amount" matInput type="number" min="0.01" placeholder="Enter Amount" (input)="limitDecimals($event)" [max]="(accounts.find(a => a.accountId === transferForm.value.withdrawId))?.balance ?? null">
+                            @if (transferForm.get('amount')?.hasError('exceedsBalance')){
+                            <mat-error>Error: Insufficient Funds</mat-error>
+                            } @else if (transferForm.get('amount')?.hasError('min')) {
+                            <mat-error>Balance must be greater than zero</mat-error>
+                            }
+                    </mat-form-field>
+                </div>        
+
+            </div>
+            <app-button label="Confirm Transfer" (click)="onSubmit()" />
+        </div>
+    </form>
+</div>

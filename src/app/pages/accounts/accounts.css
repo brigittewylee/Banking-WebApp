@@ -1,0 +1,188 @@
+.account-header{
+    padding: 30px;
+    padding-left: 50px;
+}
+
+.dividing-line{
+    height: 2px;
+    background-color: rgb(225, 225, 225);
+    border: none;
+    margin-bottom: 40px;
+}
+
+.account-cards-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 10px;
+    border: 2px solid  rgb(225, 225, 225);
+    background-color: #f2f2f2;
+    padding: 30px;
+}
+
+.account-cards-inner{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    gap: 20px;
+    padding: 3px;
+}
+
+.account-cards-inner::-webkit-scrollbar {
+    height: 5px;
+}
+
+.account-cards-inner::-webkit-scrollbar-track {
+    background: transparent;
+    height: 7px;
+}
+
+.account-cards-inner::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.new-account-card{
+    width: 250px;
+    padding: 10px;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    border: 2px dotted  rgb(225, 225, 225);
+    box-shadow:none;
+    transition: 0.3s ease-in-out;
+    background-color: #ffffff;
+}
+
+.new-account-card svg {
+    fill:#ababab;
+}
+
+.new-account-card mat-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #ababab;
+}
+
+.new-account-card:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+    border: 2px dotted rgb(0, 0, 0);
+}
+
+.new-account-card:hover mat-card-content{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.new-account-card:hover svg{
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+    fill: rgb(0, 0, 0, 0.5)
+}
+
+.chequing-card{
+    width: 260px;
+    padding: 10px;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    border: 1.5px solid  rgb(225, 225, 225);
+    border-top: 4px solid rgb(120, 120, 197);
+    box-shadow:none;
+    background-color: #ffffff;
+}
+
+.savings-card{
+    width: 250px;
+    padding: 10px;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    border: 1.5px solid  rgb(225, 225, 225);
+    border-top: 4px solid rgb(128, 177, 128);
+    box-shadow:none;
+    background-color: #ffffff;
+}
+
+.account-type{
+    font-size: medium;
+    color: #ababab;
+    font-weight: 300;
+}
+
+.account-balance{
+    font-size: 30px;
+    margin-top: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.all-transactions{
+    margin: 50px;
+    margin-top: 40px;
+    padding: 40px;
+    background-color: #f2f2f2;
+    border: 2px solid  rgb(225, 225, 225);
+    border-radius: 10px;
+
+}
+
+.accounts-transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 16px;
+    text-align: left;
+}
+
+th {
+    background-color: white;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+td {
+    font-size: 18px;
+}
+
+tbody tr {
+    background-color: white;
+    border-top: 1px solid #eee;
+}
+
+thead {
+    border-bottom: 2px solid #eee;
+}
+
+p {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.new-account-layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.new-account-layout p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}

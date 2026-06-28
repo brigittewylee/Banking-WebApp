@@ -1,0 +1,58 @@
+<h1 class="header-spacing"> Create Account</h1>
+<hr class="dividing-line">
+<div class="content-container"> 
+    <p>Create a new chequing or savings account</p>
+    <form [formGroup]="accountForm">
+        <label class="new-acc-labels">Account Name:</label>
+        <mat-form-field appearance="outline" class="new-acc-fields">
+            <input formControlName="name" matInput placeholder="eg.test123" type="string">
+            @if (accountForm.get('name')?.touched && accountForm.get('name')?.errors?.['required']) {
+                <mat-error>Account Name cannot be empty.</mat-error>
+                }
+            @else if (accountForm.get('name')?.errors?.['minlength']) {
+                <mat-error>Account Name must be at least 5 characters.</mat-error>
+                }
+            @else if (accountForm.get('name')?.errors?.['maxlength']) {
+                <mat-error>Account Name cannot be more than 30 characters.</mat-error>
+                }
+            @else if (accountForm.get('name')?.errors?.['pattern']) {
+                <mat-error>Account Name cannot contain special characters.</mat-error>
+                }
+        </mat-form-field>
+
+        <label class="new-acc-labels">Initial Balance:</label>
+        <mat-form-field appearance="outline" class="new-acc-fields">
+            <input formControlName="balance" matInput placeholder="eg. 10" type="number" (input)="limitDecimals($event)">
+            <span matTextPrefix>$&nbsp;</span>
+            @if (accountForm.get('balance')?.touched && accountForm.get('balance')?.errors?.['required']) {
+                <mat-error>Amount cannot be zero.</mat-error>
+                }
+        </mat-form-field>    
+        
+        <div class="account-type-container"> 
+            <label class="new-acc-labels">Account Type:</label>
+            <mat-radio-group formControlName="accountType">    
+                <mat-radio-button value="chequing">Chequing</mat-radio-button>
+                <mat-radio-button value="savings">Savings</mat-radio-button>
+            </mat-radio-group>
+        </div>
+       
+    </form>    
+    
+    <div class="submit-button">
+        @if(accountForm.get('accountType')?.value ==="chequing"){
+            <app-button [label]="'Create Chequing Account'" 
+                        [accountType]="accountForm.get('accountType')?.value" 
+                        (clicked)="onSubmit()"
+                        class="chequing-button">
+            </app-button>
+        } @else if(accountForm.get('accountType')?.value === "savings"){
+            <app-button [label]="'Create Savings Account'" 
+                        [accountType]="accountForm.get('accountType')?.value" 
+                        (clicked)="onSubmit()"
+                        class="savings-button">
+            </app-button>
+        }
+    </div>
+
+</div>

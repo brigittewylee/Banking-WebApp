@@ -1,0 +1,18 @@
+.chequing-button {
+    background-color:rgb(120, 120, 197) !important;
+    font-size: 16px;
+}
+
+.savings-button {
+    background-color:rgb(128, 177, 128) !important;
+    font-size: 16px;
+}
+
+.mat-mdc-button-base.mat-mdc-button-base {
+    background-color: rgb(141, 179, 212);
+    font-size: 16px;
+}
+
+.mat-mdc-button-base.mat-mdc-button-base:hover {
+    background-color: rgb(49, 137, 213);
+}

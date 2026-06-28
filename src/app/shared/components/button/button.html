@@ -1,0 +1,11 @@
+<section>
+  <div class="custom-button">
+    <button mat-flat-button
+    [ngClass]="{
+        'chequing-button': accountType === 'chequing',
+        'savings-button': accountType === 'savings'
+    }"
+    (click) = "onClick()">
+    {{label}}</button>
+  </div>
+</section>
