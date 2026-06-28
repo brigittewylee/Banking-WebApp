@@ -22,10 +22,12 @@
 
         <label class="new-acc-labels">Initial Balance:</label>
         <mat-form-field appearance="outline" class="new-acc-fields">
-            <input formControlName="balance" matInput placeholder="eg. 10" type="number" (input)="limitDecimals($event)">
+            <input formControlName="balance" matInput placeholder="eg. 10" type="number" 
+                (input)="limitDecimals($event)"
+                (keydown)="$event.key === '-' ? $event.preventDefault() : null">
             <span matTextPrefix>$&nbsp;</span>
             @if (accountForm.get('balance')?.touched && accountForm.get('balance')?.errors?.['required']) {
-                <mat-error>Amount cannot be zero.</mat-error>
+                <mat-error>Amount must be greater than zero.</mat-error>
                 }
         </mat-form-field>    
         

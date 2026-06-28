@@ -33,7 +33,11 @@
                     <label class="transfer-labels">Amount:</label>
                     <mat-form-field appearance="outline">
                         <mat-icon matPrefix>attach_money</mat-icon>
-                        <input formControlName="amount" matInput type="number" min="0.01" placeholder="Enter Amount" (input)="limitDecimals($event)" [max]="(accounts.find(a => a.accountId === transferForm.value.withdrawId))?.balance ?? null">
+                        <input formControlName="amount" matInput type="number" 
+                                min="0.01" placeholder="Enter Amount" 
+                                (input)="limitDecimals($event)" 
+                                [max]="(accounts.find(a => a.accountId === transferForm.value.withdrawId))?.balance ?? null"
+                                (keydown)="$event.key === '-' ? $event.preventDefault() : null">
                             @if (transferForm.get('amount')?.hasError('exceedsBalance')){
                             <mat-error>Error: Insufficient Funds</mat-error>
                             } @else if (transferForm.get('amount')?.hasError('min')) {
