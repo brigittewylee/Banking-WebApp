@@ -4,7 +4,8 @@
     <div class="content-container">
         <label class="transaction-description">Select an Account:</label>
         <mat-form-field appearance="outline">
-            <mat-select (selectionChange)="listTransactions($event.value)">
+            <mat-select [(ngModel)]="selectedAccountId"
+                        (selectionChange)="listTransactions($event.value)">
                 @for (account of accounts; track account.accountId) {
                     <mat-option [value]="account.accountId">{{account.accountType}} - {{account.accountId}}</mat-option>
                     }

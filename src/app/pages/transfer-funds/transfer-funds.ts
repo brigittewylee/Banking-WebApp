@@ -24,9 +24,9 @@ export class TransferFunds implements OnInit {
 
   onSubmit() {
     if (this.transferForm.valid) {
-      const { withdrawId, depositId, amount } = this.transferForm.value
-      this.bankService.transferFunds(withdrawId, depositId, amount)
-      this.router.navigate(['/transaction-history'])
+      const { withdrawId, depositId, amount, description } = this.transferForm.value
+      this.bankService.transferFunds(withdrawId, depositId, amount, description)
+      this.router.navigate(['/accounts'])
     }
   }
 
@@ -37,7 +37,8 @@ export class TransferFunds implements OnInit {
     this.transferForm = this.fb.group({
       withdrawId: ['', Validators.required],
       depositId: ['', Validators.required],
-      amount: [null, [Validators.required, Validators.min(0.01), this.amountValidator]]
+      amount: [null, [Validators.required, Validators.min(0.01), this.amountValidator]],
+      description: ['']
     })
   }
 

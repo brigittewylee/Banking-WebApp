@@ -12,7 +12,8 @@
         @for (account of accounts; track account.accountId){
             <mat-card [ngClass]="{
             'chequing-card': account.accountType === 'chequing',
-            'savings-card': account.accountType === 'savings'}">
+            'savings-card': account.accountType === 'savings'}"
+            (click)="viewTransactions(account.accountId)">
                 <mat-card-header>
                     <mat-card-title class="account-type">{{account.accountType | uppercase}}</mat-card-title>
                     <mat-card-subtitle class="account-type">{{account.name}}</mat-card-subtitle>

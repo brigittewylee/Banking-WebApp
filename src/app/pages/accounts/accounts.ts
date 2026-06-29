@@ -27,4 +27,8 @@ export class Accounts implements OnInit {
     this.router.navigate(['/create-account'])
   }
 
+  viewTransactions(accountId: number) {
+    this.router.navigate(['/transaction-history'], { queryParams: { accountId } })
+  }
+
 }

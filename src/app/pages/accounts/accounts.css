@@ -26,7 +26,7 @@
     flex-direction: row;
     overflow-x: scroll;
     gap: 20px;
-    padding: 3px;
+    padding: 5px;
 }
 
 .account-cards-inner::-webkit-scrollbar {
@@ -71,17 +71,15 @@
 
 .new-account-card:hover {
     transform: scale(1.02);
-    transition: 0.3s ease-in-out;
     border: 2px dotted rgb(0, 0, 0);
 }
 
-.new-account-card:hover mat-card-content{
+.new-account-card:hover mat-card-title, mat{
     color: rgba(0, 0, 0, 0.5);
 }
 
 .new-account-card:hover svg{
     transform: scale(1.02);
-    transition: 0.3s ease-in-out;
     fill: rgb(0, 0, 0, 0.5)
 }
 
@@ -95,6 +93,7 @@
     border-top: 4px solid rgb(120, 120, 197);
     box-shadow:none;
     background-color: #ffffff;
+    transition: 0.3s ease-in-out;
 }
 
 .savings-card{
@@ -107,6 +106,19 @@
     border-top: 4px solid rgb(128, 177, 128);
     box-shadow:none;
     background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.chequing-card:hover {
+    transform: scale(1.03);
+    border: 1px solid black;
+    border-top: 4px solid rgb(120, 120, 197);
+}
+
+.savings-card:hover{
+    transform: scale(1.03);
+    border: 1px solid black;
+    border-top: 4px solid rgb(128, 177, 128);
 }
 
 .account-type{

@@ -23,7 +23,7 @@ export class BankService {
         {
       accountId: 333333333,
       name: 'Carol',
-      balance: 23432432,
+      balance: 23432432234234,
       accountType: 'chequing'
     },
     {
@@ -123,7 +123,7 @@ export class BankService {
     })
   }
 
-  transferFunds(withdrawAccountId: number, depositAccountId: number, amount: number,) {
+  transferFunds(withdrawAccountId: number, depositAccountId: number, amount: number, description: string) {
     const withdrawalAccount = this.accounts.find(a => a.accountId === withdrawAccountId)
     const depositAccount = this.accounts.find(a => a.accountId === depositAccountId)
 
@@ -135,7 +135,7 @@ export class BankService {
 
     this.transactions.unshift({
       transactionId: Date.now(),
-      transactionDescription: null,
+      transactionDescription: description,
       withdrawAccountId,
       depositAccountId,
       timestamp: new Date(),

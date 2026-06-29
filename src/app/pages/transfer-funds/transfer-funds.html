@@ -47,6 +47,11 @@
                 </div>        
 
             </div>
+
+            <label class="transfer-labels" placeholder="(optional)">Description:</label>
+            <mat-form-field appearance="outline">
+                <input formControlName="description" matInput placeholder="Add a note (optional)">
+            </mat-form-field>
             <app-button label="Confirm Transfer" (click)="onSubmit()" />
         </div>
     </form>
